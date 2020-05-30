@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
     <item
-        android:id="@+id/navigation_1"
-        android:title="Stanje"
-        android:icon="@drawable/"/>
+        android:id="@+id/navigation_item_1"
+        android:title="Raspored"
+        android:icon="@drawable/ic_timetable"/>
     <item
-        android:id="@+id/navigation_2"
-        android:title="Unos"
-        android:icon="@drawable/"/>
+        android:id="@+id/navigation_item_2"
+        android:title="Beleske"
+        android:icon="@drawable/ic_notes"/>
     <item
-        android:id="@+id/navigation_3"
-        android:title="Liste"
-        android:icon="@drawable/"/>
+        android:id="@+id/navigation_item_3"
+        android:title="Statistika"
+        android:icon="@drawable/ic_stats"/>
 </menu>

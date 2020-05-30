@@ -1,4 +1,5 @@
 package rs.raf.projekat2.marko_vesovic_rn2417.data.models
 
-class SchoolSubject {
-}
+class SchoolSubject(
+    val name: String
+)

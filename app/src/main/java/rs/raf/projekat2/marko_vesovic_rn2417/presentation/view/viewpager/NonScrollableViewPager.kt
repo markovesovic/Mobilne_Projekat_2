@@ -1,6 +1,5 @@
-package rs.raf.projekat2.marko_vesovic_rn2417.presentation.view.pagers
+package rs.raf.projekat2.marko_vesovic_rn2417.presentation.view.viewpager
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
