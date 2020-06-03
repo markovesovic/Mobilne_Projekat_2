@@ -9,6 +9,6 @@ import rs.raf.projekat2.marko_vesovic_rn2417.data.models.SchoolSubjectResponse
 interface SchoolSubjectService {
 
     @GET("json.php")
-    fun getAll(@Query("limit") limit: Int = 100): Observable<List<SchoolSubjectResponse>>
+    fun getAll(@Query("limit") limit: Int = 5000): Observable<List<SchoolSubjectResponse>>
 
 }

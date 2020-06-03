@@ -20,6 +20,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.view.activities.LogInActivity"/>
+        <activity android:name=".presentation.view.activities.ChangeNoteActivity"/>
         <activity android:name=".presentation.view.activities.NewNoteActivity"/>
     </application>
 

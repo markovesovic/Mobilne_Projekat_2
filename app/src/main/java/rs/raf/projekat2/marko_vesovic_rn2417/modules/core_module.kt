@@ -12,7 +12,7 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.moshi.MoshiConverterFactory
-import rs.raf.projekat2.marko_vesovic_rn2417.data.datasources.local.schoolsubject.SchoolSubjectDatabase
+import rs.raf.projekat2.marko_vesovic_rn2417.data.datasources.local.Database
 import java.util.*
 import java.util.concurrent.TimeUnit
 
@@ -20,7 +20,7 @@ val coreModule = module {
     single<SharedPreferences> {
         androidApplication().getSharedPreferences(androidApplication().packageName, Context.MODE_PRIVATE)
     }
-    single { Room.databaseBuilder(androidContext(), SchoolSubjectDatabase::class.java, "MyDatabase")
+    single { Room.databaseBuilder(androidContext(), Database::class.java, "MyDatabase")
         .fallbackToDestructiveMigration()
         .build()}
 

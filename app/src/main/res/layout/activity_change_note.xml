@@ -6,7 +6,7 @@
 
 
     <EditText
-        android:id="@+id/noteTitleEditText"
+        android:id="@+id/noteTitleEditTextChange"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
@@ -21,11 +21,11 @@
         />
 
     <EditText
-        android:id="@+id/noteContentEditText"
+        android:id="@+id/noteContentEditTextChange"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layout_constraintTop_toBottomOf="@id/noteTitleEditText"
-        app:layout_constraintStart_toStartOf="@id/noteTitleEditText"
+        app:layout_constraintTop_toBottomOf="@id/noteTitleEditTextChange"
+        app:layout_constraintStart_toStartOf="@id/noteTitleEditTextChange"
         android:layout_marginStart="30dp"
         android:layout_marginTop="110dp"
         android:layout_marginBottom="125dp"
@@ -36,23 +36,23 @@
 
 
     <Button
-        android:id="@+id/cancelButton"
+        android:id="@+id/cancelButtonChange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toStartOf="@id/saveButton"
+        app:layout_constraintEnd_toStartOf="@id/changeButtonChange"
         android:layout_marginBottom="30dp"
         android:text="Odustani"
         />
 
     <Button
-        android:id="@+id/saveButton"
+        android:id="@+id/changeButtonChange"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@id/cancelButton"
+        app:layout_constraintStart_toEndOf="@id/cancelButtonChange"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toBottomOf="@id/cancelButton"
-        android:text="Sacuvaj"
+        app:layout_constraintBottom_toBottomOf="@id/cancelButtonChange"
+        android:text="Izmeni"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>
