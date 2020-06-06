@@ -10,7 +10,7 @@ import org.koin.core.context.startKoin
 import org.koin.core.logger.Level
 import rs.raf.projekat2.marko_vesovic_rn2417.modules.coreModule
 import rs.raf.projekat2.marko_vesovic_rn2417.modules.notesModule
-import rs.raf.projekat2.marko_vesovic_rn2417.modules.schoolSubjectModule
+import rs.raf.projekat2.marko_vesovic_rn2417.modules.lecturesModule
 import timber.log.Timber
 
 class MyApplication() : Application() {
@@ -32,7 +32,7 @@ class MyApplication() : Application() {
     private fun initKoin() {
         val modules = listOf(
             coreModule,
-            schoolSubjectModule,
+            lecturesModule,
             notesModule
         )
         startKoin {

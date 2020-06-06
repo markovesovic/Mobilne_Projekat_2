@@ -4,7 +4,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
 import rs.raf.projekat2.marko_vesovic_rn2417.R
-import rs.raf.projekat2.marko_vesovic_rn2417.data.models.Lecture
 import rs.raf.projekat2.marko_vesovic_rn2417.presentation.view.recycler.diff.TimetableDiffItemCallback
 import rs.raf.projekat2.marko_vesovic_rn2417.presentation.view.recycler.viewholder.TimetableViewHolder
 

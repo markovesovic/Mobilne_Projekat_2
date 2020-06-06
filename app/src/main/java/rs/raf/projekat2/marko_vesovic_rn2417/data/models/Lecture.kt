@@ -1,6 +1,6 @@
 package rs.raf.projekat2.marko_vesovic_rn2417.data.models
 
-data class Lecture (
+data class Lecture(
     val id: Long,
     val name: String,
     val type: String,

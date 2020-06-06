@@ -4,17 +4,17 @@ import androidx.lifecycle.ViewModel
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import rs.raf.projekat2.marko_vesovic_rn2417.data.repositories.shoolsubject.SchoolSubjectRepository
-import rs.raf.projekat2.marko_vesovic_rn2417.presentation.contract.SchoolSubjectContract
+import rs.raf.projekat2.marko_vesovic_rn2417.data.repositories.lectures.LectureRepository
+import rs.raf.projekat2.marko_vesovic_rn2417.presentation.contract.TimetableContract
 
-class SchoolSubjectsViewModel(
-    private val schoolSubjectRepository: SchoolSubjectRepository
-): ViewModel(), SchoolSubjectContract.ViewModel {
+class TimetableViewModel(
+    private val lectureRepository: LectureRepository
+): ViewModel(), TimetableContract.ViewModel {
 
     val subscription = CompositeDisposable()
 
-    override fun getAllSchoolSubjects() {
-        val subscription = schoolSubjectRepository
+    override fun getAllLectures() {
+        val subscription = lectureRepository
             .getAll()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
