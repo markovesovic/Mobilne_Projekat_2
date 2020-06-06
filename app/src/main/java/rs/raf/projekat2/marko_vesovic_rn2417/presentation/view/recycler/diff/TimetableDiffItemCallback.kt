@@ -1,6 +1,7 @@
 package rs.raf.projekat2.marko_vesovic_rn2417.presentation.view.recycler.diff
 
 import androidx.recyclerview.widget.DiffUtil
+import rs.raf.projekat2.marko_vesovic_rn2417.data.models.Lecture
 
 class TimetableDiffItemCallback : DiffUtil.ItemCallback<Lecture>() {
 
