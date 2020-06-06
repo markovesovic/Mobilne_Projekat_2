@@ -4,6 +4,7 @@ import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import kotlinx.android.extensions.LayoutContainer
 import kotlinx.android.synthetic.main.layout_timetable_lecture.*
+import rs.raf.projekat2.marko_vesovic_rn2417.data.models.Lecture
 
 class TimetableViewHolder (override val containerView: View) : RecyclerView.ViewHolder(containerView), LayoutContainer {
 
