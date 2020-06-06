@@ -13,6 +13,7 @@ class LectureRepositoryImplementation(
     private val remoteDataSource: LectureService
 ) : LectureRepository {
 
+
     override fun fetchAll(): Observable<Resource<Unit>> {
         return remoteDataSource
             .getAll()
@@ -20,7 +21,7 @@ class LectureRepositoryImplementation(
                 Timber.e("Upis u bazu")
                 val entities = it.map {
                     LectureEntity(
-                        it.id,
+                        0,
                         it.name,
                         it.type,
                         it.teacher,
