@@ -7,7 +7,11 @@ interface UserContract {
 
     interface ViewModel {
         val user: LiveData<User>
-        fun getUser()
+        val isLoggedIn: LiveData<Boolean>
+        fun getUser(): User
+        fun setUser(user: User)
+        fun isLoggedIn(): Boolean
+        fun setLoggedIn(li: Boolean)
     }
 
 }

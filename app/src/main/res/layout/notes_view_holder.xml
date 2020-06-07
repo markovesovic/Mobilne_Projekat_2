@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="375dp"
-    android:layout_height="300dp"
+    android:layout_height="275dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_marginStart="17dp"
-    android:layout_marginTop="20dp">
+    android:layout_marginTop="20dp"
+    android:background="@drawable/my_border"
+    android:layout_marginBottom="30dp"
+    >
 
     <TextView
         android:id="@+id/noteTitleEditText"
@@ -15,13 +18,15 @@
         app:layout_constraintBottom_toTopOf="@id/noteContentEditText"
         android:layout_marginStart="10dp"
         android:layout_marginTop="20dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
         android:text="This is note title"
         />
 
 
     <TextView
         android:id="@+id/noteContentEditText"
-        android:maxWidth="270dp"
+        android:maxWidth="260dp"
         android:maxHeight="200dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

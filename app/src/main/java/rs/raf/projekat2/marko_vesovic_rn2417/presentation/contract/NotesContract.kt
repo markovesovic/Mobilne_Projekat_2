@@ -11,8 +11,13 @@ interface NotesContract {
         val notesState: LiveData<NotesState>
 
         fun getAllNotes()
-        fun addNote(note: Note)
-
+        fun getAllNonArchivedNotes()
+        fun getAllByFilter(filter: String)
+        fun getAllNonArchivedNotesByFilter(filter: String)
+        fun insertNote(note: Note)
+        fun updateNote(note: Note)
+        fun changeArchivedStatus(note: Note)
+        fun delete(note: Note)
     }
 
 }

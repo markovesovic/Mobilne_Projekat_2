@@ -11,7 +11,7 @@ import rs.raf.projekat2.marko_vesovic_rn2417.data.models.LectureEntity
 
 @Database(
     entities = [LectureEntity::class, NoteEntity::class],
-    version = 2,
+    version = 3,
     exportSchema = false
 )
 @TypeConverters()

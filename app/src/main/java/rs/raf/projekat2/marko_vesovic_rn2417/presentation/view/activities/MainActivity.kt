@@ -26,6 +26,7 @@ class MainActivity : AppCompatActivity(R.layout.activity_main) {
     }
 
     private fun initViewPager() {
+        viewPager.offscreenPageLimit = 4
         viewPager.adapter = PagerAdapter(supportFragmentManager)
     }
 

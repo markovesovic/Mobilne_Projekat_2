@@ -9,7 +9,11 @@ import java.util.*
 interface NotesRepository {
 
     fun getAll(): Observable<List<Note>>
-//    fun getAllByName()
-    fun insert(note: Note):Completable
-
+    fun getAllNonArchived(): Observable<List<Note>>
+    fun getAllByFilter(filter: String): Observable<List<Note>>
+    fun getAllNonArchivedByFilter(filter: String): Observable<List<Note>>
+    fun insert(note: Note): Completable
+    fun update(note: Note): Completable
+    fun changeArchivedStatus(note: Note): Completable
+    fun delete(note: Note): Completable
 }

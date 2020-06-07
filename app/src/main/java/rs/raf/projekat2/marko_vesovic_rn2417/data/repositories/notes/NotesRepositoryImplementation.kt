@@ -15,14 +15,79 @@ class NotesRepositoryImplementation(private val localDataSource: NotesDao) : Not
             .getAll()
             .map {
                 it.map {
-                    Note(it.id, it.title, it.content, it.archived)
+                    Note(it.id,
+                        it.title,
+                        it.content,
+                        it.archived)
+                }
+            }
+    }
+
+    override fun getAllByFilter(filter: String): Observable<List<Note>> {
+        return localDataSource
+            .getAllByFilter(filter)
+            .map {
+                it.map {
+                    Note(it.id,
+                    it.title,
+                    it.content,
+                    it.archived)
+                }
+            }
+    }
+
+    override fun getAllNonArchived(): Observable<List<Note>> {
+        return localDataSource
+            .getAllNonArchived()
+            .map {
+                it.map {
+                    Note(
+                        it.id,
+                        it.title,
+                        it.content,
+                        it.archived
+                    )
+                }
+            }
+    }
+
+    override fun getAllNonArchivedByFilter(filter: String): Observable<List<Note>> {
+        return localDataSource
+            .getAllNonArchivedByFilter(filter)
+            .map {
+                it.map {
+                    Note(
+                        it.id,
+                        it.title,
+                        it.content,
+                        it.archived
+                    )
                 }
             }
     }
 
     override fun insert(note: Note): Completable {
-        val noteEntity: NoteEntity = NoteEntity(note.id, note.title, note.content, note.archived)
+        val noteEntity: NoteEntity = NoteEntity(
+            note.id,
+            note.title,
+            note.content,
+            note.archived)
         return localDataSource.insert(noteEntity)
+    }
+
+    override fun update(note: Note): Completable {
+        return localDataSource
+            .update(note.id, note.title, note.content)
+    }
+
+    override fun changeArchivedStatus(note: Note): Completable {
+        return localDataSource
+            .changeArchivedStatus(note.id, note.archived)
+    }
+
+    override fun delete(note: Note): Completable {
+        return localDataSource
+            .delete(note.id)
     }
 
 }

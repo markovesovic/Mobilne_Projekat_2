@@ -21,34 +21,6 @@ class NotesViewModel(
     private val subscriptions = CompositeDisposable()
     override val notesState: MutableLiveData<NotesState> = MutableLiveData()
 
-    private val publishSubject: PublishSubject<String> = PublishSubject.create()
-
-    init {
-        val subscription = publishSubject
-            .debounce(200, TimeUnit.MILLISECONDS)
-            .distinctUntilChanged()
-            .switchMap {
-                notesRepository
-                    .getAll()
-                    .subscribeOn(Schedulers.io())
-                    .observeOn(AndroidSchedulers.mainThread())
-                    .doOnError {
-                        Timber.e("Error in publish subject")
-                        Timber.e(it)
-                    }
-            }
-            .subscribe(
-                {
-                    notesState.value = NotesState.Success(it)
-                },
-                {
-                    notesState.value = NotesState.Error("Error happened while fetching data from db")
-                    Timber.e(it)
-                }
-            )
-        subscriptions.add(subscription)
-    }
-
 
     override fun getAllNotes() {
         val subscription = notesRepository
@@ -67,23 +39,119 @@ class NotesViewModel(
         subscriptions.add(subscription)
     }
 
-    override fun addNote(note: Note) {
+    override fun getAllNonArchivedNotes() {
+        val subscription = notesRepository
+            .getAllNonArchived()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    notesState.value = NotesState.Success(it)
+                },
+                {
+                    notesState.value = NotesState.Error("Error happened while fetching non archived data from db")
+                }
+            )
+        subscriptions.add(subscription)
+    }
+
+    override fun getAllByFilter(filter: String) {
+        val subscription = notesRepository
+            .getAllByFilter(filter)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    notesState.value = NotesState.Success(it)
+                },
+                {
+                    notesState.value = NotesState.Error("Error happened while fetching filtered data from db")
+                }
+            )
+        subscriptions.add(subscription)
+    }
+
+    override fun getAllNonArchivedNotesByFilter(filter: String) {
+        val subscription = notesRepository
+            .getAllNonArchivedByFilter(filter)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    notesState.value = NotesState.Success(it)
+                },
+                {
+                    notesState.value = NotesState.Error("Error happened while filtering data")
+                }
+            )
+        subscriptions.add(subscription)
+    }
+
+    override fun insertNote(note: Note) {
         val subscription = notesRepository
             .insert(note)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(
                 {
-                    notesState.value = NotesState.Error("mare")
-
+                    notesState.value = NotesState.SuccessMessage("Successfully inserted note")
                 },
                 {
 
-                    Timber.e(it)
+                    notesState.value = NotesState.Error("Error happened while inserting note")
                 }
             )
         subscriptions.add(subscription)
     }
+
+    override fun updateNote(note: Note) {
+        val subscription = notesRepository
+            .update(note)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    notesState.value = NotesState.SuccessMessage("Successfully updated note")
+                },
+                {
+                    notesState.value = NotesState.Error("Error happened while updating note")
+                }
+            )
+        subscriptions.add(subscription)
+    }
+
+    override fun changeArchivedStatus(note: Note) {
+        val subscription = notesRepository
+            .changeArchivedStatus(note)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    notesState.value = NotesState.SuccessMessage("Successfully changed archived status")
+                },
+                {
+                    notesState.value = NotesState.Error("Error happened while changing archived status")
+                }
+            )
+        subscriptions.add(subscription)
+    }
+
+    override fun delete(note: Note) {
+        val subscription = notesRepository
+            .delete(note)
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    notesState.value = NotesState.SuccessMessage("Successfully deleted note")
+                },
+                {
+                    notesState.value = NotesState.Error("Error happened while deleting note")
+                }
+            )
+        subscriptions.add(subscription)
+    }
+
 
     override fun onCleared() {
         super.onCleared()

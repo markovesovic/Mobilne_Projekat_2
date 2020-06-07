@@ -6,5 +6,6 @@ sealed class NotesState {
     object Loading: NotesState()
     object DataFetched: NotesState()
     data class Success(val notes: List<Note>): NotesState()
+    data class SuccessMessage(val message: String): NotesState()
     data class Error(val message: String): NotesState()
 }
