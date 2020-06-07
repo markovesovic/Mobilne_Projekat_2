@@ -23,4 +23,7 @@ abstract class LectureDao {
         insertAll(entities).blockingAwait()
     }
 
+    @Query("SELECT * FROM timetable WHERE groups LIKE '%' || :group || '%' AND day LIKE '%' || :day || '%' AND (teacher LIKE '%' || :searchText || '%' OR name LIKE '%' || :searchText || '%')")
+    abstract fun getByFilters(group: String, day: String, searchText: String): Observable<List<LectureEntity>>
+
 }

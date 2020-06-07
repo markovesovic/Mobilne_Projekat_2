@@ -10,6 +10,8 @@ interface TimetableContract {
 
         fun fetchAllLectures()
         fun getAllLectures()
+        fun getAllLecturesByFilters(group: String, day: String, searchText: String)
+
     }
 
 }

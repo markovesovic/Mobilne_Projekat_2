@@ -13,7 +13,6 @@ class LectureRepositoryImplementation(
     private val remoteDataSource: LectureService
 ) : LectureRepository {
 
-
     override fun fetchAll(): Observable<Resource<Unit>> {
         return remoteDataSource
             .getAll()
@@ -41,6 +40,25 @@ class LectureRepositoryImplementation(
     override fun getAll(): Observable<List<Lecture>> {
         return localDataSource
             .getAll()
+            .map {
+                it.map {
+                    Lecture(
+                        it.id,
+                        it.name,
+                        it.type,
+                        it.teacher,
+                        it.groups,
+                        it.classroom,
+                        it.day,
+                        it.time
+                    )
+                }
+            }
+    }
+
+    override fun getByFilters(group: String, day: String, searchText: String): Observable<List<Lecture>> {
+        return localDataSource
+            .getByFilters(group, day, searchText)
             .map {
                 it.map {
                     Lecture(

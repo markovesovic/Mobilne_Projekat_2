@@ -21,33 +21,6 @@ class TimetableViewModel(
     override val timetableState: MutableLiveData<TimetableState> = MutableLiveData()
 
     private val subscriptions = CompositeDisposable()
-//    private val publishSubject: PublishSubject<String> = PublishSubject.create()
-
-//    init {
-//        val subscription = publishSubject
-//            .debounce(200, TimeUnit.MILLISECONDS)
-//            .distinctUntilChanged()
-//            .switchMap {
-//                lectureRepository
-//                    .getAllByName(it)
-//                    .subscribeOn(Schedulers.io())
-//                    .observeOn(AndroidSchedulers.mainThread())
-//                    .doOnError {
-//                        Timber.e("Error in publish subject")
-//                        Timber.e(it)
-//                    }
-//            }
-//            .subscribe(
-//                {
-//                    moviesState.value = MoviesState.Success(it)
-//                },
-//                {
-//                    moviesState.value = MoviesState.Error("Error happened while fetching data from db")
-//                    Timber.e(it)
-//                }
-//            )
-//        subscriptions.add(subscription)
-//    }
 
     override fun fetchAllLectures() {
         val subscription = lectureRepository
@@ -74,6 +47,23 @@ class TimetableViewModel(
     override fun getAllLectures() {
         val subscription = lectureRepository
             .getAll()
+            .subscribeOn(Schedulers.io())
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribe(
+                {
+                    timetableState.value = TimetableState.Success(it)
+                },
+                {
+                    timetableState.value = TimetableState.Error("Error happened while fetching data from db")
+                    Timber.e(it)
+                }
+            )
+        subscriptions.add(subscription)
+    }
+
+    override fun getAllLecturesByFilters(group: String, day: String, searchText: String) {
+        val subscription = lectureRepository
+            .getByFilters(group, day, searchText)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(

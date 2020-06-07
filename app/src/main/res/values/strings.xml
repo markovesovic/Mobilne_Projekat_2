@@ -1,4 +1,63 @@
 <resources>
     <string name="app_name">Student Helper App</string>
     <string name="placeholder">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry\'s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</string>
+    <string-array name="groups_array">
+        <item>All Groups</item>
+        <item>101</item>
+        <item>102</item>
+        <item>103</item>
+        <item>104</item>
+        <item>105</item>
+        <item>106</item>
+        <item>107</item>
+        <item>1d1</item>
+        <item>1d2</item>
+        <item>1s1</item>
+        <item>1s2</item>
+        <item>1s3</item>
+        <item>1s4</item>
+        <item>201</item>
+        <item>202</item>
+        <item>203</item>
+        <item>204</item>
+        <item>210</item>
+        <item>211</item>
+        <item>2d1</item>
+        <item>2d2</item>
+        <item>2d3</item>
+        <item>2d4</item>
+        <item>2s1</item>
+        <item>2s2</item>
+        <item>301</item>
+        <item>302</item>
+        <item>303</item>
+        <item>304</item>
+        <item>305</item>
+        <item>306</item>
+        <item>307</item>
+        <item>308</item>
+        <item>309</item>
+        <item>310</item>
+        <item>311</item>
+        <item>312</item>
+        <item>313</item>
+        <item>3d1</item>
+        <item>3s1</item>
+        <item>3s2</item>
+        <item>401</item>
+        <item>402</item>
+        <item>403</item>
+        <item>410</item>
+        <item>4d1</item>
+        <item>Dodatna nastava"</item>
+    </string-array>
+    <string-array name="days_array">
+        <item>All Days</item>
+        <item>PON</item>
+        <item>UTO</item>
+        <item>SRE</item>
+        <item>ČET</item>
+        <item>PET</item>
+    </string-array>
+
 </resources>
